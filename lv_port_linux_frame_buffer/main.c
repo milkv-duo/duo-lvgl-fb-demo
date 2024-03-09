@@ -29,10 +29,11 @@ int main(void)
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf   = &disp_buf;
     disp_drv.flush_cb   = fbdev_flush;
-    disp_drv.hor_res    = 800;
-    disp_drv.ver_res    = 480;
+    disp_drv.hor_res    = 240;
+    disp_drv.ver_res    = 320;
     lv_disp_drv_register(&disp_drv);
 
+#if 0
     evdev_init();
     static lv_indev_drv_t indev_drv_1;
     lv_indev_drv_init(&indev_drv_1); /*Basic initialization*/
@@ -48,10 +49,16 @@ int main(void)
     lv_obj_t * cursor_obj = lv_img_create(lv_scr_act()); /*Create an image object for the cursor */
     lv_img_set_src(cursor_obj, &mouse_cursor_icon);           /*Set the image source*/
     lv_indev_set_cursor(mouse_indev, cursor_obj);             /*Connect the image  object to the driver*/
+#endif
 
 
     /*Create a Demo*/
+#if LV_USE_DEMO_WIDGETS
     lv_demo_widgets();
+#endif
+#if LV_USE_DEMO_BENCHMARK
+    lv_demo_benchmark();
+#endif
 
     /*Handle LitlevGL tasks (tickless mode)*/
     while(1) {

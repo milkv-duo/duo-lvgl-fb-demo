@@ -1,7 +1,7 @@
 #
 # Makefile
 #
-CC 				?= gcc
+CC 				:= $(shell which riscv64-unknown-linux-musl-gcc)
 LVGL_DIR_NAME 	?= lvgl
 LVGL_DIR 		?= .
 
@@ -12,7 +12,7 @@ WARNINGS		:= -Wall -Wshadow -Wundef -Wmissing-prototypes -Wno-discarded-qualifie
 					-Wno-unused-value -Wno-unused-parameter -Wno-missing-field-initializers -Wuninitialized -Wmaybe-uninitialized -Wall -Wextra -Wno-unused-parameter \
 					-Wno-missing-field-initializers -Wtype-limits -Wsizeof-pointer-memaccess -Wno-format-nonliteral -Wpointer-arith -Wno-cast-qual -Wmissing-prototypes \
 					-Wunreachable-code -Wno-switch-default -Wreturn-type -Wmultichar -Wno-discarded-qualifiers -Wformat-security -Wno-ignored-qualifiers -Wno-sign-compare -std=c99
-CFLAGS 			?= -O3 -g0 -I$(LVGL_DIR)/ $(WARNINGS)
+CFLAGS 			?= -O3 -g0 -mcpu=c906fdv -march=rv64imafdcv0p7xthead -mcmodel=medany -mabi=lp64d -Wall -Wshadow -I$(LVGL_DIR)/ $(WARNINGS)
 LDFLAGS 		?= -lm
 BIN 			= demo
 BUILD_DIR 		= ./build
@@ -52,7 +52,7 @@ $(BUILD_OBJ_DIR)/%.o: %.c
     
 default: $(TARGET)
 	@mkdir -p $(dir $(BUILD_BIN_DIR)/)
-	$(CC) -o $(BUILD_BIN_DIR)/$(BIN) $(TARGET) $(LDFLAGS)
+	$(CC) -o $(BUILD_BIN_DIR)/$(BIN) $(TARGET) $(CFLAGS) $(LDFLAGS)
 
 clean: 
 	rm -rf $(BUILD_DIR)
