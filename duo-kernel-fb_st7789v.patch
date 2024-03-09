@@ -59,10 +59,10 @@ index 16734cb47..22945265b 100644
  };
  
 diff --git a/linux_5.10/drivers/staging/fbtft/fb_st7789v.c b/linux_5.10/drivers/staging/fbtft/fb_st7789v.c
-index 3a280cc18..229c24f65 100644
+index 3a280cc18..e8cab2b28 100644
 --- a/linux_5.10/drivers/staging/fbtft/fb_st7789v.c
 +++ b/linux_5.10/drivers/staging/fbtft/fb_st7789v.c
-@@ -82,66 +82,25 @@ enum st7789v_command {
+@@ -82,66 +82,26 @@ enum st7789v_command {
   */
  static int init_display(struct fbtft_par *par)
  {
@@ -141,6 +141,7 @@ index 3a280cc18..229c24f65 100644
 +	write_reg(par,0xD0,0xA4,0xA1);
 +	write_reg(par,0xE0,0xD0,0x04,0x0D,0x11,0x13,0x2B,0x3F,0x54,0x4C,0x18,0x0D,0x0B,0x1F,0x23);
 +	write_reg(par,0xE1,0xD0,0x04,0x0C,0x11,0x13,0x2C,0x3F,0x44,0x51,0x2F,0x1F,0x1F,0x20,0x23);
++	write_reg(par,0x21);
 +	write_reg(par,0x11);
 +	mdelay(50);
 +	write_reg(par,0x29);
