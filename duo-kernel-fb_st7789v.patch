@@ -58,6 +58,66 @@ index 16734cb47..22945265b 100644
  	};
  };
  
+diff --git a/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts b/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
+index b5ca05f8c..84c2bcd85 100644
+--- a/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
++++ b/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
+@@ -23,9 +23,24 @@
+ 
+ &spi3 {
+ 	status = "okay";
++	/delete-node/ spidev@0;
+ 
+-	spidev@0 {
++	st7789v: st7789v@0{
++		compatible = "sitronix,st7789v";
++		reg = <0>;
+ 		status = "okay";
++		spi-max-frequency = <48000000>;
++		spi-cpol;
++		spi-cpha;
++		rotate = <0>;
++		fps = <60>;
++		rgb;
++		buswidth = <8>;
++
++		dc = <&porta 18 GPIO_ACTIVE_HIGH>;
++		reset = <&porta 28 GPIO_ACTIVE_HIGH>;
++
++		debug = <0x0>;
+ 	};
+ };
+ 
+diff --git a/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts b/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
+index d13bb15ec..e5c90a400 100644
+--- a/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
++++ b/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
+@@ -23,9 +23,24 @@
+ 
+ &spi3 {
+ 	status = "okay";
++	/delete-node/ spidev@0;
+ 
+-	spidev@0 {
++	st7789v: st7789v@0{
++		compatible = "sitronix,st7789v";
++		reg = <0>;
+ 		status = "okay";
++		spi-max-frequency = <48000000>;
++		spi-cpol;
++		spi-cpha;
++		rotate = <0>;
++		fps = <60>;
++		rgb;
++		buswidth = <8>;
++
++		dc = <&porta 18 GPIO_ACTIVE_HIGH>;
++		reset = <&porta 28 GPIO_ACTIVE_HIGH>;
++
++		debug = <0x0>;
+ 	};
+ };
+ 
 diff --git a/linux_5.10/drivers/staging/fbtft/fb_st7789v.c b/linux_5.10/drivers/staging/fbtft/fb_st7789v.c
 index 3a280cc18..e8cab2b28 100644
 --- a/linux_5.10/drivers/staging/fbtft/fb_st7789v.c
