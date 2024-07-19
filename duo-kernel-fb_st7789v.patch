@@ -1,5 +1,5 @@
 diff --git a/build/boards/cv180x/cv1800b_milkv_duo_sd/dts_riscv/cv1800b_milkv_duo_sd.dts b/build/boards/cv180x/cv1800b_milkv_duo_sd/dts_riscv/cv1800b_milkv_duo_sd.dts
-index e90e2c32a..6ce800d8c 100644
+index 9d840d088..4e637999b 100644
 --- a/build/boards/cv180x/cv1800b_milkv_duo_sd/dts_riscv/cv1800b_milkv_duo_sd.dts
 +++ b/build/boards/cv180x/cv1800b_milkv_duo_sd/dts_riscv/cv1800b_milkv_duo_sd.dts
 @@ -10,9 +10,23 @@
@@ -29,7 +29,7 @@ index e90e2c32a..6ce800d8c 100644
  };
  
 diff --git a/build/boards/cv181x/cv1812cp_milkv_duo256m_sd/dts_riscv/cv1812cp_milkv_duo256m_sd.dts b/build/boards/cv181x/cv1812cp_milkv_duo256m_sd/dts_riscv/cv1812cp_milkv_duo256m_sd.dts
-index 16734cb47..22945265b 100644
+index c8332b316..84ae70b51 100644
 --- a/build/boards/cv181x/cv1812cp_milkv_duo256m_sd/dts_riscv/cv1812cp_milkv_duo256m_sd.dts
 +++ b/build/boards/cv181x/cv1812cp_milkv_duo256m_sd/dts_riscv/cv1812cp_milkv_duo256m_sd.dts
 @@ -16,9 +16,24 @@
@@ -59,10 +59,10 @@ index 16734cb47..22945265b 100644
  };
  
 diff --git a/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts b/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
-index b5ca05f8c..84c2bcd85 100644
+index aeca0bfcc..5c209399b 100644
 --- a/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
 +++ b/build/boards/cv181x/cv1813h_milkv_duos_emmc/dts_riscv/cv1813h_milkv_duos_emmc.dts
-@@ -23,9 +23,24 @@
+@@ -43,9 +43,24 @@
  
  &spi3 {
  	status = "okay";
@@ -89,10 +89,10 @@ index b5ca05f8c..84c2bcd85 100644
  };
  
 diff --git a/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts b/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
-index d13bb15ec..e5c90a400 100644
+index 1ea1d4632..c76948a74 100644
 --- a/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
 +++ b/build/boards/cv181x/cv1813h_milkv_duos_sd/dts_riscv/cv1813h_milkv_duos_sd.dts
-@@ -23,9 +23,24 @@
+@@ -43,9 +43,24 @@
  
  &spi3 {
  	status = "okay";
